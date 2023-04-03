@@ -4,9 +4,15 @@
 
 def add_integer(a, b=98):
     """Return the integer addition of a and b.
+<<<<<<< HEAD
 
     Float arguments are typecasted to ints before addition is performed.
 
+=======
+    
+    Float arguments are typecasted to ints before addition is performed.
+    
+>>>>>>> a94a2611d7df335c1503544e9154e2722a8ae485
     Raises:
         TypeError: If either of a or b is a non-integer and non-float.
     """
