@@ -1,9 +1,16 @@
 #!/usr/bin/python3
-"""Reads stdin line by line and computes metrics."""
+"""Reads sandard input line by line and computes metrics.
+
+After every ten lines or the input of a keyboard interruption (CTRL + C),
+prints the following statistics:
+    - Total file size up to that point.
+    - Count of read status codes up to that point.
+"""
 
 
 def print_stats(size, status_codes):
     """Print accumulated metrics.
+
     Args:
         size (int): The accumulated read file size.
         status_codes (dict): The accumulated count of status codes.
@@ -20,7 +27,6 @@ if __name__ == "__main__":
     status_codes = {}
     valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
     count = 0
-
 
     try:
         for line in sys.stdin:
@@ -43,11 +49,11 @@ if __name__ == "__main__":
                         status_codes[line[-2]] = 1
                     else:
                         status_codes[line[-2]] += 1
-                except IndexError:
-                    pass
+            except IndexError:
+                pass
 
-            print_stats(size, status_codes)
+        print_stats(size, status_codes)
 
-        except KeyboardInterrupt:
-            print_stats(size, status_codes)
-            raise
+    except KeyboardInterrupt:
+        print_stats(size, status_codes)
+         raise
