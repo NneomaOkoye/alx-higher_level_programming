@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Modules for test Rectangle class """
+""" Modules for test Rectangle Class """
 import unittest
 from io import StringIO
 from unittest import TestCase
@@ -365,4 +365,3 @@ class TestRectangleMethods(unittest.TestCase):
 
         for i in range(len(linput)):
             self.assertEqual(linput[i].__str__(), loutput[i].__str__())
-
